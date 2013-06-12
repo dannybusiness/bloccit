@@ -1,9 +1,23 @@
-<h1>Welcome to Bloccit</h1>
-<p>This is the home page for Bloccit.</p>
+<div class="hero-unit">
+  <h1>Bloccit</h1>
+  <p>Bloccit is a resource for sharing links with your friends!</p>
+  <p>
+      <%= link_to "Sign In", new_user_session_path, class: 'btn btn-primary btn-large' %> or 
+      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary btn-large' %> today!
+  </p>
+</div>
+<div class="row">
+  <div class="span4">
+    <h2>It's Hip...</h2>
+    <p>One of the most underappreciated joints in the body, the hip is indeed the hippest around. Not to mention the precursor to hop.</p>
+  </div>
+  <div class="span4">
+    <h2>To Be...</h2>
+    <p>or not to be. That's one of the great things about Bloccit. Be or don't be. No sweat off my back.</p>
+  </div>
+  <div class="span4">
+    <h2>Square</h2>
+    <p>You're gonna have 4 right angles, a pocket protector and a ton of wonderful memes, articles, images and gifs to reference. Can't NOBODY hold you down!</p>
+  </div>
+</div>
 
-<ul class="thumbnails">
-  <li class="span4"></li>
-  <li class="span4"></li>
-  <li class="span4"></li>
-  <li class="span4"></li> 
-</ul>
