@@ -27,6 +27,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    @topic = Topic.find(params[:topic_id])
     @post = Post.find(params[:id])
     authorize! :edit, Post, message: "You can only edit your own post."
   end
