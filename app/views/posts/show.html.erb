@@ -10,7 +10,7 @@
       <%= @post.user.name %>
     </small>
     <p><%= markdown @post.body %></p>
-    <% if %>
+    <% if @post.image %>
       <p><%= image_tag(@post.image) %></p>
     <% end %>
   </div>
