@@ -14,8 +14,12 @@
             <%= link_to (markdown post.title), [@topic, post] %>
           </h4>
           <small>
-            <p><%= image_tag(post.user.avatar.tiny.url) if post.user.avatar? %></p>
-            <p><%= image_tag(post.image) if post.image? %></p>
+            <% if post.user.avatar? %>
+              <p><%= image_tag(post.user.avatar.tiny.url) %></p>
+            <% end %>
+            <% if post.image? %>
+              <p><%= image_tag(post.image) %></p>
+            <% end %>
             submitted <%= time_ago_in_words(post.created_at) %> ago by <%= post.user.name %></br>
             <%= post.comments.count %> Comments
           </small>
