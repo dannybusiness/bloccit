@@ -3,8 +3,8 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :topic
   attr_accessible :body, :title, :topic, :image
-  mount_uploader :image, PostImageUploader 
-
+  mount_uploader :image, PostImageUploader
+  
   default_scope order('created_at DESC')
 
   validates :title, :length => { :minimum => 5 }, :presence => true

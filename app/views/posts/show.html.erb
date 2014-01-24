@@ -2,21 +2,27 @@
 
 <div class="row">
   <div class="span8">
-    <small>
-      <% if @post.user.avatar? %>
-        <%= image_tag(@post.user.avatar.tiny.url) %>
+    <div class="hero-unit"
+      <p><%= markdown @post.body %></p>
+      <% if @post.image? %>
+        <p><%= image_tag(@post.image) %></p>
       <% end %>
-      submitted <%= time_ago_in_words(@post.created_at) %> ago by 
-      <%= @post.user.name %>
-    </small>
-    <p><%= markdown @post.body %></p>
-    <% if @post.image? %>
-      <p><%= image_tag(@post.image) %></p>
-    <% end %>
+      <small>
+        <% if @post.user.avatar? %>
+          <%= image_tag(@post.user.avatar.tiny.url) %>
+        <% end %>
+        submitted <%= time_ago_in_words(@post.created_at) %> ago by 
+        <%= @post.user.name %>
+      </small>
+    </div>
+
+    <%= render 'comments/comments' %>
+    
   </div>
   <div class="span4">
   <% if can? :edit, @post %>
     <%= link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn_large btn-black' %>
   <% end %>
+  <%= link_to "Create New Comment", new_topic_post_comment_path(@topic,@post,@user), class: 'btn btn_large btn-black' %>
   </div>
 </div>

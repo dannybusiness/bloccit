@@ -30,7 +30,8 @@ rand(4..10).times do
 
     rand(3..7).times do
       p.comments.create(
-        body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"))
+        body: Faker::Lorem.paragraphs(rand(1..2)).join("\n"),
+        user: User.first(:order => "Random()"))
     end
   end
 end
@@ -60,6 +61,7 @@ u = User.new(
   password_confirmation: 'helloworld')
 u.skip_confirmation!
 u.save
+
 
 puts "Seed finished"
 puts "#{User.count} users created"

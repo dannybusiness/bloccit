@@ -1,0 +1,6 @@
+    <% if @comments %>
+     <% @comments.each do |comment| %>
+      <h5>Comment id = <%= comment.id %></h5>
+      <p> <%= comment.body %> </p>
+     <% end %>
+    <% end %> 
