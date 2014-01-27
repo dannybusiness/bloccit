@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
     @topic = Topic.find(params[:topic_id])
     @post = @topic.posts.find(params[:post_id])
 
-    @comment = @post.comment.find(params[:id])
+    @comment = @post.comments.find(params[:id])
 
     authorize! :destroy, @comment, message: "You need to own the comment to delete it"
     if @comment.destroy
@@ -31,6 +31,7 @@ class CommentsController < ApplicationController
     else
       flash[:error] = "There was an error deleting the comment"
       redirect_to [@topic, @post]
+    end
   end
 
 end

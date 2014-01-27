@@ -48,7 +48,7 @@ class PostsController < ApplicationController
 
   def destroy
     @topic = Topic.find(params[:topic_id])
-    @post = Post.find(params[:topic_id])
+    @post = Post.find(params[:post_id])
 
     title = @post.title
     authorize! :destroy, @post, message: "You need to own the post to delete it"

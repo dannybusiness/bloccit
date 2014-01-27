@@ -3,7 +3,7 @@
       <h5>Comment id = <%= comment.id %></h5>
       <p> <%= comment.body %> </p>
       <% if can? :destroy, comment %>
-        <%= link_to "Delete", [@topic, @post, @comment], method: :delete %>
+        <%= link_to "Delete", [@topic, @post, comment], method: :delete %>
       <% end %>
      <% end %>
     <% end %> 
