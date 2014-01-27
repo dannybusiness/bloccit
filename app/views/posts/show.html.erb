@@ -16,6 +16,8 @@
       </small>
     </div>
 
+    
+
     <%= render 'comments/comments' %>
     
   </div>
@@ -23,6 +25,14 @@
   <% if can? :edit, @post %>
     <%= link_to "Edit", edit_topic_post_path(@topic,@post), class: 'btn btn_large btn-black' %>
   <% end %>
-  <%= link_to "Create New Comment", new_topic_post_comment_path(@topic,@post,@user), class: 'btn btn_large btn-black' %>
+  <% if can? :destroy, @post%>
+    <%= link_to "Delete Post", [@topic, @post], method: :delete, class: 'btn btn_large btn-black' %>
+  <% end %> 
+
+  
   </div>
+</div>
+
+<div class="row">
+    <%= link_to "Create New Comment", new_topic_post_comment_path(@topic,@post,@user), class: 'btn btn_large btn-black' %>
 </div>
